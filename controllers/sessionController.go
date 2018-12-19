@@ -45,6 +45,7 @@ func (c *SessionController) DeleteSessionData() {
 	resp["errmsg"] = models.RecodeText(models.RECODE_OK)
 }
 
+// 登陆
 func (c *SessionController) Login() {
 	resp := make(map[string]interface{})
 	defer c.RetData(resp)
@@ -62,10 +63,10 @@ func (c *SessionController) Login() {
 	//3.与数据库匹配判断账号密码正确
 
 	o := orm.NewOrm()
-	user := models.User{Name: resp["mobile"].(string)}
-
+	var user models.User
+	mobile := resp["mobile"].(string)
 	qs := o.QueryTable("user")
-	err := qs.Filter("mobile", "7777").One(&user)
+	err := qs.Filter("mobile", mobile).One(&user)
 
 	if err != nil {
 		resp["errno"] = models.RECODE_DATAERR

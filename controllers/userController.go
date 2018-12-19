@@ -45,3 +45,40 @@ func (c *UserController) Reg() {
 
 	c.SetSession("name", user.Name)
 }
+
+// 头像上传
+//TODO 后期使用ipfs保存文件，等待完善
+func (c *UserController) PostAvatar() {
+	resp := make(map[string]interface{})
+	resp["errno"] = models.RECODE_REQERR
+	resp["errmsg"] = models.RecodeText(models.RECODE_REQERR)
+	defer c.RetData(resp)
+
+	//avatar,_,err := c.GetFile("avatar")
+
+	//if err != nil {
+	//	resp["errno"] = models.RECODE_REQERR
+	//	resp["errmsg"] = models.RecodeText(models.RECODE_REQERR)
+	//
+	//	return
+	//}
+	//hash,err := utils.UploadIPFS()
+	// 获取文件后缀
+	//suffix := path.Ext(hd.Filename)
+
+	// 获取用户id
+	//uid := c.GetSession("user_id")
+	//o := orm.NewOrm()
+	//user := models.User{}
+	//qs := o.QueryTable("user")
+	//qs.Filter("id",uid).One(&user)
+	//user.Avatar_url = "待插入"
+	//_,err = o.Update(&user)
+	//if err != nil {
+	//	resp["errno"] = models.RECODE_REQERR
+	//	resp["errmsg"] = models.RecodeText(models.RECODE_REQERR)
+	//
+	//	return
+	//}
+
+}

@@ -18,7 +18,7 @@ func (c *HouseIndexController) RetData(resp map[string]interface{}) {
 func (c *HouseIndexController) GetHouseIndex() {
 	resp := make(map[string]interface{})
 
-	resp["errno"] = models.RECODE_DATAERR
-	resp["errmsg"] = models.RecodeText(models.RECODE_DATAERR)
+	resp["errno"] = models.RECODE_OK
+	resp["errmsg"] = models.RecodeText(models.RECODE_OK)
 	c.RetData(resp)
 }

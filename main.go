@@ -19,7 +19,7 @@ func main() {
 }
 
 func ignoreStaticPath() {
-	//透明static
+	//图片访问路径
 	//beego.SetStaticPath("group1/M00/","fdfs/storage_data/data/")
 
 	beego.InsertFilter("/", beego.BeforeRouter, TransparentStatic)
