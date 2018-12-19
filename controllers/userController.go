@@ -82,3 +82,50 @@ func (c *UserController) PostAvatar() {
 	//}
 
 }
+
+// 获取个人信息
+func (c *UserController) UserInffo() {
+	resp := make(map[string]interface{})
+	defer c.RetData(resp)
+
+	// 获取用户id
+	uid := c.GetSession("user_id")
+	o := orm.NewOrm()
+	user := models.User{Id: uid.(int)}
+	err := o.Read(&user)
+	if err != nil {
+		resp["errno"] = models.RECODE_REQERR
+		resp["errmsg"] = models.RecodeText(models.RECODE_REQERR)
+		return
+	}
+	resp["data"] = &user
+	resp["errno"] = models.RECODE_OK
+	resp["errmsg"] = models.RecodeText(models.RECODE_OK)
+}
+
+// 更新名字
+func (c *UserController) UpdateName() {
+	resp := make(map[string]interface{})
+	defer c.RetData(resp)
+
+	username := make(map[string]string)
+	json.Unmarshal(c.Ctx.Input.RequestBody, &username)
+	// 获取用户id
+	uid := c.GetSession("user_id")
+	o := orm.NewOrm()
+	user := models.User{Id: uid.(int)}
+	err := o.Read(&user)
+
+	user.Name = username["name"]
+	_, err = o.Update(&user)
+	if err != nil {
+		resp["errno"] = models.RECODE_REQERR
+		resp["errmsg"] = models.RecodeText(models.RECODE_REQERR)
+		return
+	}
+
+	c.SetSession("name", username["name"])
+	resp["data"] = username
+	resp["errno"] = models.RECODE_OK
+	resp["errmsg"] = models.RecodeText(models.RECODE_OK)
+}

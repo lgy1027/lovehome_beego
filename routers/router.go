@@ -22,6 +22,10 @@ func init() {
 	//api/v1.0/sessions 登陆
 	beego.Router("/api/v1.0/sessions", &controllers.SessionController{}, "post:Login")
 	//api/v1.0/user/avatar
-	beego.Router("/api/v1.0/sessions", &controllers.UserController{}, "post:PostAvatar")
+	beego.Router("/api/v1.0/user/avatar", &controllers.UserController{}, "post:PostAvatar")
+	//api/v1.0/user 展示用户信息
+	beego.Router("/api/v1.0/user", &controllers.UserController{}, "get:UserInffo")
+	//api/v1.0/user/name  更新用户姓名
+	beego.Router("/api/v1.0/user/name", &controllers.UserController{}, "put:UpdateName")
 
 }
