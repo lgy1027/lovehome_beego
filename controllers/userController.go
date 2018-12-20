@@ -108,24 +108,46 @@ func (c *UserController) UpdateName() {
 	resp := make(map[string]interface{})
 	defer c.RetData(resp)
 
-	username := make(map[string]string)
-	json.Unmarshal(c.Ctx.Input.RequestBody, &username)
+	UserName := make(map[string]string)
+	json.Unmarshal(c.Ctx.Input.RequestBody, &UserName)
 	// 获取用户id
 	uid := c.GetSession("user_id")
 	o := orm.NewOrm()
 	user := models.User{Id: uid.(int)}
-	err := o.Read(&user)
-
-	user.Name = username["name"]
-	_, err = o.Update(&user)
-	if err != nil {
-		resp["errno"] = models.RECODE_REQERR
-		resp["errmsg"] = models.RecodeText(models.RECODE_REQERR)
-		return
+	if o.Read(&user) == nil {
+		user.Name = UserName["name"]
+		if _, err := o.Update(&user, "name"); err == nil {
+			c.SetSession("name", UserName["name"])
+			resp["data"] = UserName
+			resp["errno"] = models.RECODE_OK
+			resp["errmsg"] = models.RecodeText(models.RECODE_OK)
+			return
+		}
 	}
+	resp["errno"] = models.RECODE_DATAERR
+	resp["errmsg"] = models.RecodeText(models.RECODE_DATAERR)
+}
 
-	c.SetSession("name", username["name"])
-	resp["data"] = username
-	resp["errno"] = models.RECODE_OK
-	resp["errmsg"] = models.RecodeText(models.RECODE_OK)
+func (c *UserController) UpdateCert() {
+	resp := make(map[string]interface{})
+	defer c.RetData(resp)
+
+	uid := c.GetSession("user_id")
+	realName := make(map[string]string)
+	json.Unmarshal(c.Ctx.Input.RequestBody, &realName)
+	o := orm.NewOrm()
+	user := models.User{Id: uid.(int)}
+	if o.Read(&user) == nil {
+		user.Real_name = realName["real_name"]
+		user.Id_card = realName["id_card"]
+		if _, err := o.Update(&user); err == nil {
+			c.SetSession("user_id", uid)
+
+			resp["errno"] = models.RECODE_OK
+			resp["errmsg"] = models.RecodeText(models.RECODE_OK)
+			return
+		}
+	}
+	resp["errno"] = models.RECODE_DATAERR
+	resp["errmsg"] = models.RecodeText(models.RECODE_DATAERR)
 }

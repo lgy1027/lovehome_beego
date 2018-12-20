@@ -21,11 +21,21 @@ func init() {
 
 	//api/v1.0/sessions 登陆
 	beego.Router("/api/v1.0/sessions", &controllers.SessionController{}, "post:Login")
-	//api/v1.0/user/avatar
+	//api/v1.0/user/avatar 起别名
 	beego.Router("/api/v1.0/user/avatar", &controllers.UserController{}, "post:PostAvatar")
 	//api/v1.0/user 展示用户信息
 	beego.Router("/api/v1.0/user", &controllers.UserController{}, "get:UserInffo")
 	//api/v1.0/user/name  更新用户姓名
 	beego.Router("/api/v1.0/user/name", &controllers.UserController{}, "put:UpdateName")
+	//api/v1.0/user/auth 实名认证
+	beego.Router("/api/v1.0/user/auth", &controllers.UserController{}, "get:UserInffo;post:UpdateCert")
+	//api/v1.0/user/houses 查看房源
+	beego.Router("/api/v1.0/user/houses", &controllers.HouseController{}, "get:GetHouses;POST:PostHouse")
+	//api/v1.0/houses 发布房源
+	beego.Router("/api/v1.0/houses", &controllers.HouseController{}, "post:PostHouse")
+	//api/v1.0/houses/1
+	beego.Router("/api/v1.0/houses/?:id", &controllers.HouseController{}, "get:HouseById")
+	//api/v1.0/user/orders 订单
+	beego.Router("/api/v1.0/user/orders", &controllers.OrderController{}, "get:GetOrderData")
 
 }
