@@ -64,6 +64,9 @@ func (c *UserController) PostAvatar() {
 	//filename := h.Filename
 	c.SaveToFile("avatar", "static/upload/"+h.Filename) // 保存位置在 static/upload, 没有文件夹要先创建
 
+	//删除文件
+	defer os.Remove("static/upload/" + h.Filename)
+
 	f, err = os.Open("static/upload/" + h.Filename)
 	defer f.Close()
 
