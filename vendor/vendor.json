@@ -75,16 +75,148 @@
 			"revisionTime": "2018-11-28T08:17:53Z"
 		},
 		{
+			"checksumSHA1": "wkU9YxyDgefVIPL2Z/zXhK71JBw=",
+			"path": "github.com/btcsuite/btcd/btcec",
+			"revision": "7d2daa5bfef28c5e282571bc06416516936115ee",
+			"revisionTime": "2018-11-30T01:59:35Z"
+		},
+		{
 			"checksumSHA1": "IkLitEJNZjFeTzwPzYVZF5/TJsc=",
 			"path": "github.com/go-sql-driver/mysql",
 			"revision": "60d456a402782453be397030407e34decaf04d73",
 			"revisionTime": "2018-12-02T17:10:36Z"
 		},
 		{
+			"checksumSHA1": "aqbkuKkvjp+FVGvv2laUdlF71yk=",
+			"path": "github.com/gogo/protobuf/proto",
+			"revision": "2f3f4c2c8761da4cf7572e42b3b321ad54a1203a",
+			"revisionTime": "2018-12-11T05:34:36Z"
+		},
+		{
 			"checksumSHA1": "cyejI0bcXBrdCmmbBNVzMNx7I80=",
 			"path": "github.com/gomodule/redigo/redis",
 			"revision": "e8fc0692a7e26a05b06517348ed466349062eb47",
 			"revisionTime": "2018-10-26T00:15:55Z"
+		},
+		{
+			"checksumSHA1": "DeCJipQ5LSYKWSQBMkvnM2FtDSU=",
+			"path": "github.com/gxed/hashland/keccakpg",
+			"revision": "d9f6b97f8db22dd1e090fd0bbbe98f09cc7dd0a8",
+			"revisionTime": "2018-02-21T19:12:14Z"
+		},
+		{
+			"checksumSHA1": "ARn2x0EL0+2nO+rsyhQ86WsBUp8=",
+			"path": "github.com/ipfs/go-ipfs-api",
+			"revision": "f821c1fe09cba1707ca2e656bb68d2c5d1793acd",
+			"revisionTime": "2018-11-27T20:34:49Z"
+		},
+		{
+			"checksumSHA1": "N5ty+rHEtanV+UIjQZP64PYk9Es=",
+			"path": "github.com/ipfs/go-ipfs-api/options",
+			"revision": "f821c1fe09cba1707ca2e656bb68d2c5d1793acd",
+			"revisionTime": "2018-11-27T20:34:49Z"
+		},
+		{
+			"checksumSHA1": "RVvVY3OCP5irOlTAryy0LOTB7p0=",
+			"path": "github.com/ipfs/go-ipfs-files",
+			"revision": "90d206a6f3947f904673ebffd376a2dcbbd84942",
+			"revisionTime": "2018-10-17T15:38:06Z"
+		},
+		{
+			"checksumSHA1": "CaDPwkye3PofZ6x3T/izbR/dxAQ=",
+			"path": "github.com/libp2p/go-flow-metrics",
+			"revision": "7e5a55af485341567f98d6847a373eb5ddcdcd43",
+			"revisionTime": "2018-09-06T18:27:56Z"
+		},
+		{
+			"checksumSHA1": "A5lxAUwRTpYizngzkAkoOPJSwYY=",
+			"path": "github.com/libp2p/go-libp2p-crypto",
+			"revision": "b150863d61f797673433ab9e578c6eaf6ee985a1",
+			"revisionTime": "2018-11-30T16:27:22Z"
+		},
+		{
+			"checksumSHA1": "+bSXRPdmVcxmy8l6q6kYTR6/46I=",
+			"path": "github.com/libp2p/go-libp2p-crypto/pb",
+			"revision": "b150863d61f797673433ab9e578c6eaf6ee985a1",
+			"revisionTime": "2018-11-30T16:27:22Z"
+		},
+		{
+			"checksumSHA1": "/9MHzNRNVVEdHeU3uDGoxfg0qYM=",
+			"path": "github.com/libp2p/go-libp2p-metrics",
+			"revision": "623fc2e95e2bd3143caa442b03121b60cc45b76d",
+			"revisionTime": "2018-12-07T22:34:46Z"
+		},
+		{
+			"checksumSHA1": "ULdML8f3Cet6RIOdwNwj0CoY+Lw=",
+			"path": "github.com/libp2p/go-libp2p-peer",
+			"revision": "403c53bf57131cd1c76719d7e0f33fccd2da1d1d",
+			"revisionTime": "2018-12-07T21:43:59Z"
+		},
+		{
+			"checksumSHA1": "KWevKbYDWLuqqHQzHt+ckpp+DHM=",
+			"path": "github.com/libp2p/go-libp2p-protocol",
+			"revision": "b29f3d97e3a2fb8b29c5d04290e6cb5c5018004b",
+			"revisionTime": "2017-12-12T21:21:32Z"
+		},
+		{
+			"checksumSHA1": "mJQtsTCZGhCmjdFtXBWryZSri/o=",
+			"path": "github.com/minio/blake2b-simd",
+			"revision": "3f5f724cb5b182a5c278d6d3d55b40e7f8c2efb4",
+			"revisionTime": "2016-07-23T06:10:19Z"
+		},
+		{
+			"checksumSHA1": "iO7HEu7XGg+uYraM56eaNZSmFFE=",
+			"path": "github.com/minio/sha256-simd",
+			"revision": "51976451ce1942acbb55707a983ed232fa027110",
+			"revisionTime": "2018-10-05T18:31:35Z"
+		},
+		{
+			"checksumSHA1": "a58zUNtDH/gEd6F6KI3FqT2iEo0=",
+			"path": "github.com/mitchellh/go-homedir",
+			"revision": "ae18d6b8b3205b561c79e8e5f69bff09736185f4",
+			"revisionTime": "2018-08-24T00:42:36Z"
+		},
+		{
+			"checksumSHA1": "EsER+f+hvVc2mWkpxaxrfYo1QoA=",
+			"path": "github.com/mr-tron/base58/base58",
+			"revision": "c8897612421d88a51012eaa53bf7267686173ae5",
+			"revisionTime": "2018-10-30T09:28:56Z"
+		},
+		{
+			"checksumSHA1": "t2JY3B96h5J4supAT8cKftrlI7g=",
+			"path": "github.com/multiformats/go-multiaddr",
+			"revision": "8c3eb5dc1c12c5723d5b1d7de82abfa0e6f719d7",
+			"revisionTime": "2018-12-04T22:46:38Z"
+		},
+		{
+			"checksumSHA1": "hKfMf22+N8+ATd+OOcuIPoYf890=",
+			"path": "github.com/multiformats/go-multiaddr-dns",
+			"revision": "b3d6340f0777006db9e16e2817745c52fd64a500",
+			"revisionTime": "2018-12-04T22:48:21Z"
+		},
+		{
+			"checksumSHA1": "K/OAp3pEYCcs4KfA+btq1TELKQc=",
+			"path": "github.com/multiformats/go-multiaddr-net",
+			"revision": "c75d1cac17a0d84dbf8b2c53c61f0ebf0575183a",
+			"revisionTime": "2018-12-04T22:51:49Z"
+		},
+		{
+			"checksumSHA1": "/c2FcC+Euf/uljrVFJviIdwd/zc=",
+			"path": "github.com/multiformats/go-multihash",
+			"revision": "1dbee63c8258e5714536b554eeabe0a1068b259a",
+			"revisionTime": "2018-12-10T17:43:34Z"
+		},
+		{
+			"checksumSHA1": "jAzqolwnRJhHsKXmmvKNrHqxqAw=",
+			"path": "github.com/spaolacci/murmur3",
+			"revision": "f09979ecbc725b9e6d41a297405f65e7e8804acc",
+			"revisionTime": "2018-01-18T20:28:30Z"
+		},
+		{
+			"checksumSHA1": "E5gaTTRbeY0UQOpJ4bYu6dw7aWk=",
+			"path": "github.com/whyrusleeping/tar-utils",
+			"revision": "8c6c8ba81d5c71fd69c0f48dbde4b2fb422b6dfc",
+			"revisionTime": "2018-05-09T14:17:11Z"
 		},
 		{
 			"checksumSHA1": "J6lNRPdrYhKft6S8x33K9brxyhE=",
@@ -99,6 +231,42 @@
 			"path": "golang.org/x/crypto/acme/autocert",
 			"revision": "4b656268d3fc0cc90bf905a58155fe88b4618288",
 			"revisionTime": "2018-11-28T08:17:53Z"
+		},
+		{
+			"checksumSHA1": "8M/pD2ostkgQtYh4d6QYUvCZh+E=",
+			"path": "golang.org/x/crypto/blake2s",
+			"revision": "505ab145d0a99da450461ae2c1a9f6cd10d1f447",
+			"revisionTime": "2018-09-26T22:07:39Z"
+		},
+		{
+			"checksumSHA1": "2LpxYGSf068307b7bhAuVjvzLLc=",
+			"path": "golang.org/x/crypto/ed25519",
+			"revision": "505ab145d0a99da450461ae2c1a9f6cd10d1f447",
+			"revisionTime": "2018-09-26T22:07:39Z"
+		},
+		{
+			"checksumSHA1": "0JTAFXPkankmWcZGQJGScLDiaN8=",
+			"path": "golang.org/x/crypto/ed25519/internal/edwards25519",
+			"revision": "505ab145d0a99da450461ae2c1a9f6cd10d1f447",
+			"revisionTime": "2018-09-26T22:07:39Z"
+		},
+		{
+			"checksumSHA1": "eP6ULb7qY83lyYmM7AfaDIRDeXE=",
+			"path": "golang.org/x/crypto/sha3",
+			"revision": "505ab145d0a99da450461ae2c1a9f6cd10d1f447",
+			"revisionTime": "2018-09-26T22:07:39Z"
+		},
+		{
+			"checksumSHA1": "GO1dqlQVbhldBzw02Ipm3vr6j48=",
+			"path": "golang.org/x/sys/cpu",
+			"revision": "074acd46bca67915925527c07849494d115e7c43",
+			"revisionTime": "2018-12-18T18:24:21Z"
+		},
+		{
+			"checksumSHA1": "Y7nctMxT58lRM78VtElPerhcnEs=",
+			"path": "golang.org/x/sys/windows",
+			"revision": "074acd46bca67915925527c07849494d115e7c43",
+			"revisionTime": "2018-12-18T18:24:21Z"
 		},
 		{
 			"checksumSHA1": "ZSWoOPUNRr5+3dhkLK3C4cZAQPk=",
