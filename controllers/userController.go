@@ -6,8 +6,13 @@ import (
 	"fmt"
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
+	"io/ioutil"
 	"lovehome/models"
+	"lovehome/utils"
+	"os"
 )
+
+var url_prefix = "http://ipfs.io/ipfs/"
 
 type UserController struct {
 	beego.Controller
@@ -47,40 +52,57 @@ func (c *UserController) Reg() {
 }
 
 // 头像上传
-//TODO 后期使用ipfs保存文件，等待完善
 func (c *UserController) PostAvatar() {
 	resp := make(map[string]interface{})
 	resp["errno"] = models.RECODE_REQERR
 	resp["errmsg"] = models.RecodeText(models.RECODE_REQERR)
 	defer c.RetData(resp)
 
-	//avatar,_,err := c.GetFile("avatar")
+	f, h, err := c.GetFile("avatar")
+	//获取文件后缀
+	//suffix := path.Ext(h.Filename)
+	//filename := h.Filename
+	c.SaveToFile("avatar", "static/upload/"+h.Filename) // 保存位置在 static/upload, 没有文件夹要先创建
 
-	//if err != nil {
-	//	resp["errno"] = models.RECODE_REQERR
-	//	resp["errmsg"] = models.RecodeText(models.RECODE_REQERR)
-	//
-	//	return
-	//}
+	f, err = os.Open("static/upload/" + h.Filename)
+	defer f.Close()
+
+	fs, err := ioutil.ReadAll(f)
+	hash, err := utils.UploadIPFS(string(fs))
+	beego.Info("hash:", hash)
+	if err != nil {
+		resp["errno"] = models.RECODE_UNKNOWERR
+		resp["errmsg"] = models.RecodeText(models.RECODE_UNKNOWERR)
+		return
+	}
+
+	if err != nil {
+		resp["errno"] = models.RECODE_REQERR
+		resp["errmsg"] = models.RecodeText(models.RECODE_REQERR)
+
+		return
+	}
 	//hash,err := utils.UploadIPFS()
-	// 获取文件后缀
-	//suffix := path.Ext(hd.Filename)
 
-	// 获取用户id
-	//uid := c.GetSession("user_id")
-	//o := orm.NewOrm()
-	//user := models.User{}
-	//qs := o.QueryTable("user")
-	//qs.Filter("id",uid).One(&user)
-	//user.Avatar_url = "待插入"
-	//_,err = o.Update(&user)
-	//if err != nil {
-	//	resp["errno"] = models.RECODE_REQERR
-	//	resp["errmsg"] = models.RecodeText(models.RECODE_REQERR)
-	//
-	//	return
-	//}
+	//获取用户id
+	uid := c.GetSession("user_id")
+	o := orm.NewOrm()
+	user := models.User{}
+	qs := o.QueryTable("user")
+	qs.Filter("id", uid).One(&user)
+	user.Avatar_url = url_prefix + hash
+	_, err = o.Update(&user)
+	if err != nil {
+		resp["errno"] = models.RECODE_REQERR
+		resp["errmsg"] = models.RecodeText(models.RECODE_REQERR)
 
+		return
+	}
+	respData := make(map[string]interface{})
+	respData["avatar_url"] = url_prefix + hash
+	resp["data"] = respData
+	resp["errno"] = models.RECODE_OK
+	resp["errmsg"] = models.RecodeText(models.RECODE_OK)
 }
 
 // 获取个人信息
