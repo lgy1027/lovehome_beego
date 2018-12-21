@@ -1,10 +1,13 @@
 package controllers
 
 import (
+	"encoding/json"
 	"github.com/astaxie/beego"
+	"github.com/astaxie/beego/cache"
 	_ "github.com/astaxie/beego/cache/redis"
 	"github.com/astaxie/beego/orm"
 	"lovehome/models"
+	"time"
 )
 
 // 区域管理
@@ -27,13 +30,13 @@ func (c *AreaController) GetArea() {
 	defer c.RetData(resp)
 
 	//从redis缓存中拿数据拿数据
-	//cache_conn, err := cache.NewCache("redis", `{"key":"lovehome","conn":":6379","dbNum":"0"}`)
+	cache_conn, err := cache.NewCache("redis", `{"key":"lovehome","conn":":6379","dbNum":"0"}`)
 
-	//if areaData := cache_conn.Get("area");areaData!=nil{
-	//	beego.Info("get data from cache===========")
-	//	resp["data"] = areaData
-	//	return
-	//}
+	if areaData := cache_conn.Get("area"); areaData != nil {
+		beego.Info("get data from cache===========")
+		resp["data"] = areaData
+		return
+	}
 
 	//从mysql数据库拿到area数据
 	var areas []models.Area
@@ -55,13 +58,13 @@ func (c *AreaController) GetArea() {
 	resp["data"] = &areas
 
 	//把数据转换成json格式存入缓存
-	//json_str, err := json.Marshal(areas)
-	//if err != nil {
-	//	beego.Info("encoding err")
-	//	return
-	//}
+	json_str, err := json.Marshal(areas)
+	if err != nil {
+		beego.Info("encoding err")
+		return
+	}
 
-	//cache_conn.Put("area", json_str, time.Second*3600)
+	cache_conn.Put("area", json_str, time.Second*3600)
 
 	//打包成json返回给前段
 	beego.Info("query data sucess ,resp =", resp, "num =", num)

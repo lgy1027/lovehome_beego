@@ -13,7 +13,7 @@ func main() {
 	//首页设置
 	ignoreStaticPath()
 	//session控制设置
-	beego.BConfig.WebConfig.Session.SessionOn = true
+	//beego.BConfig.WebConfig.Session.SessionOn = true
 
 	beego.Run()
 }
