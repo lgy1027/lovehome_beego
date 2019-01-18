@@ -6,9 +6,9 @@ import (
 )
 
 type Area struct {
-	Id     int      `json:"aid"`                        //区域编号
-	Name   string   `orm:"size(32)" json:"aname"`       //区域名字
-	Houses []*House `orm:"reverse(many)" json:"houses"` //区域所有的房屋
+	Id     int      `json:"id" form:"id"`                    //区域编号
+	Name   string   `orm:"size(32)" json:"name" form:"name"` //区域名字
+	Houses []*House `orm:"reverse(many)" json:"houses"`      //区域所有的房屋
 }
 
 func (this *Area) GetArea() (areas []Area, err error) {

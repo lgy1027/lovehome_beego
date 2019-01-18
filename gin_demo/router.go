@@ -9,7 +9,11 @@ func initRouter() *gin.Engine {
 
 	router := gin.Default()
 
-	router.GET("/api/v1.0/areas", apis.GetArea)
+	apiGroup := router.Group("/api/v1.0")
+
+	{
+		apiGroup.GET("/areas", apis.GetArea)
+	}
 
 	return router
 }
