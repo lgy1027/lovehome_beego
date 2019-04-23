@@ -2,7 +2,7 @@ package controllers
 
 import (
 	"github.com/astaxie/beego"
-	"lovehome/models"
+	"lovehome_beego/models"
 )
 
 type HouseIndexController struct {

@@ -3,7 +3,7 @@ package controllers
 import (
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
-	"lovehome/models"
+	"lovehome_beego/models"
 )
 
 // 订单

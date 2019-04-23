@@ -7,8 +7,8 @@ import (
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
 	"io/ioutil"
-	"lovehome/models"
-	"lovehome/utils"
+	"lovehome_beego/models"
+	"lovehome_beego/utils"
 	"os"
 )
 

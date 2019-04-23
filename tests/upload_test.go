@@ -2,7 +2,7 @@ package test
 
 import (
 	"fmt"
-	"lovehome/utils"
+	"lovehome_beego/utils"
 	"testing"
 )
 

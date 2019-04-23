@@ -3,7 +3,7 @@ package main
 import (
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/context"
-	_ "lovehome/routers"
+	_ "lovehome_beego/routers"
 	"net/http"
 	"strings"
 )

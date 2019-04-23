@@ -6,7 +6,7 @@ import (
 	"github.com/astaxie/beego/cache"
 	_ "github.com/astaxie/beego/cache/redis"
 	"github.com/astaxie/beego/orm"
-	"lovehome/models"
+	"lovehome_beego/models"
 	"time"
 )
 
